@@ -38,4 +38,11 @@ class User {
     this.state = mapData['state'];
     this.profilePhoto = mapData['profile_photo'];
   }
+
+  @override
+  String toString() {
+    return 'User{uid: $uid, name: $name, email: $email, username: $username, status: $status, state: $state, profilePhoto: $profilePhoto}';
+  }
+
+
 }

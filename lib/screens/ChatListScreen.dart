@@ -46,7 +46,9 @@ class _ChatListScreenState extends State<ChatListScreen> {
             Icons.search,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/search_screen");
+          },
         ),
 
         IconButton(
@@ -72,7 +74,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
 }
 
 class ChatListContainer extends StatefulWidget {
-  String currentUserId;
+  final String currentUserId;
   ChatListContainer(this.currentUserId);
 
   @override

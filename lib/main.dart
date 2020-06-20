@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:skypeclone/resources/firebase_rapository.dart';
 import 'package:skypeclone/screens/HomeScreen.dart';
 import 'package:skypeclone/screens/LoginScreen.dart';
+import 'package:skypeclone/screens/SearchScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,12 +22,19 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "Skype App",
       debugShowCheckedModeBanner: false,
+      initialRoute: "/",
+      theme: ThemeData(
+        brightness: Brightness.dark
+      ),
+      routes: {
+        '/search_screen': (context) => SearchScreen(),
+      },
       home: FutureBuilder(
         future: firebaseRepository.getCurrentUser(),
         builder: (context, snapshot){
           print("Snapshot ${snapshot.data}");
           if(snapshot.hasData){
-            return LoginScreen();
+            return HomeScreen();
           }else{
             return LoginScreen();
           }
